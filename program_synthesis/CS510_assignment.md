@@ -23,7 +23,7 @@ Here are the specific goals you should achieve for this assignment:
   - Report the best results you achieved, submit corresponding code file and generated code for reproducing check.
 
 Due: xxxx. 
-
+If you want to do more exploration over code understanding& generation task as your final course project, you are highly welcomed to discuss with TA Yunzhe (yunzhel2 AT illinois.edu).
 
 ## Data
 The program synthesis dataset is located in `data/program_synthesis_data.jsonl`. The fields of the data are explained below:
