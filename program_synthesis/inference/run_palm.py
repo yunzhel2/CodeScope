@@ -129,7 +129,8 @@ def main():
 
     dataset = load_dataset('json', split='train', data_files=str(load_path))
     dataset.cleanup_cache_files()  # for multiple evaluation
-    dataset = dataset.select([0])
+
+    # dataset = dataset.select([0])
     dataset = dataset.map(add_program_synthesis)
     dataset.to_json(save_path, lines=True)
 
