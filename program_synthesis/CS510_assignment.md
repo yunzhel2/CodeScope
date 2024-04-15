@@ -1,8 +1,10 @@
 # Assignment - CS 510 Advanced Information retrieval
 
-In this assignment, you will learn how to solve real-world coding problem through LLMs, i.e., program synthesis, over 11 programming languages. The objective of program synthesis is to generate expected code solutions based on
-the natural language description of the task. Program synthesis not only requires LLMs to have strong logical reasoning and problem-solving abilities, but also examines the ability of LLMs to accurately express logical structures into concrete
-code at a deeper level. The input is a programming  scenario described in natural language, including sample inputs and outputs of the problem, while the expected output is code that can solve the corresponding problem.
+In this assignment, you will learn how to solve real-world coding problem through LLMs, i.e., program synthesis, over 11 programming languages.  The primary goal of program synthesis is to generate code that fulfills specific requirements outlined in a natural language description. This not only demands that the LLM comprehend the semantics of the problem described but also translate this understanding into a functional program in the correct programming language.
+
+Program synthesis with LLMs tests both the model's deep understanding of programming concepts and its ability to navigate and implement the syntax and semantics of multiple languages effectively. By feeding the model a scenario described in natural language, complete with sample inputs and outputs, the model must demonstrate its ability to logically deduce the necessary steps to solve the problem and express these steps in the appropriate code. This process is crucial for developing AI systems that can assist or automate aspects of coding in diverse real-world applications, enhancing productivity and reducing error rates in software development.
+
+The assignment mimics real-world scenarios where developers or non-technical users can specify what a program should do using plain language, and the LLM generates the appropriate code automatically. This capability can significantly speed up software development, reduce the potential for human error, and make programming more accessible to people without formal coding expertise. It also underscores the model's advanced capabilities in understanding and executing tasks in various programming environments, which is essential for creating versatile and adaptable AI-driven tools.
 
 Here is a case about using GPT-4 to do program synthesis.
 
@@ -10,20 +12,20 @@ Here is a case about using GPT-4 to do program synthesis.
 
 Here are the specific goals you should achieve for this assignment:
 
-- Use PaLM to make inference on all program_synthesis problems. (**45 pts**)
+- Use PaLM to make inference on all program_synthesis problems. (**60 pts**)
   - Create your google AI studio's API through the [link](https://aistudio.google.com/app/apikey).
-  - Follow the detailed instruction below to do inference via `inference/run_palm.py`, you are encouraged to try different prompt templates. (**40 pts**) *Programming languages **except D, Delphi, and Perl** are required to generate and evaluate.*
-  - Write postprocess on the output of LLMs, remove the unnecessary part, e.g., analysis of the question. (**5 pts**)
+  - Follow the detailed instruction below to do inference via `inference/run_palm.py`, you are encouraged to try different prompt templates. (**45 pts**) *All programming languages **except D, Delphi, and Perl** are required to generate and evaluate.*
+  - Write postprocess on the output of LLMs, remove the unnecessary part, e.g., analysis of the question. (**15 pts**)
   - **Bonus:** Try google's new released model [Gemini](https://gemini.google.com/) with your own prompts, or any other SOTA code generation models, then compare the results with PaLM. (**20 pts**)
-- Evaluate the results by executing code. (**35 pts**)
+- Evaluate the results by executing code. (**20 pts**)
   - Build the Executor with Exec-eval and Docker. 
-  - Execute the generated code with `evaluator/run_execeval.py` and evaluate the results with `evaluator/score_program_synthesis.py`. Report the pass rate over all 11 languages and average pass rate in your report. (**25 pts**)
+  - Execute the generated code with `evaluator/run_execeval.py` and evaluate the results with `evaluator/score_program_synthesis.py`. Report the pass rate over all 11 languages and average pass rate in your report. (**10 pts**)
   - Observe the results and write two case studies in arbitrary languages, one successful case and one failed case. (**10 pts**) 
 - Performance Ranking. (**20 pts**)
   - Report the best results you achieved, submit corresponding code file and generated code for reproducing check.
 
-Due: xxxx. 
-If you want to do more exploration over code understanding& generation task as your final course project, you are highly welcomed to discuss with TA Yunzhe (yunzhel2 AT illinois.edu).
+**Due: May 3rd.**
+If you want to do more exploration over code understanding & generation task as your final course project, you are highly welcomed to discuss with TA Yunzhe (yunzhel2 AT illinois.edu).
 
 ## Data
 The program synthesis dataset is located in `data/program_synthesis_data.jsonl`. The fields of the data are explained below:
