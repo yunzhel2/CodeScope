@@ -14,7 +14,7 @@ Here are the specific goals you should achieve for this assignment:
 
 - Use PaLM to make inference on all program_synthesis problems. (**60 pts**)
   - Create your google AI studio's API through the [link](https://aistudio.google.com/app/apikey).
-  - Follow the detailed instruction below to do inference via `inference/run_palm.py`, you are encouraged to try different prompt templates. (**45 pts**) *All programming languages **except D, Delphi, and Perl** are required to generate and evaluate.*
+  - Follow the detailed instruction below to do inference via `inference/run_palm.py`, you are encouraged to try different prompt templates, e.g., Chain-of-Thoughts(COT). (**45 pts**) *All programming languages **except D, Delphi, and Perl** are required to generate and evaluate.*
   - Write postprocess on the output of LLMs, remove the unnecessary part, e.g., analysis of the question. (**15 pts**)
   - **Bonus:** Try google's new released model [Gemini](https://gemini.google.com/) with your own prompts, or any other SOTA code generation models, then compare the results with PaLM. (**20 pts**)
 - Evaluate the results by executing code. (**20 pts**)
