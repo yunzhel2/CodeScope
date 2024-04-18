@@ -32,7 +32,7 @@ def add_exec_outcome(example):
 
 
 def main(args):
-    dataset = load_dataset('json', split='train', data_files=args.codes_dir + args.path)
+    dataset = load_dataset('json', split='train', data_files=args.codes_dir + args.code_filename)
     dataset = dataset.map(add_exec_outcome)
 
     lang_counts = Counter(dataset['lang'])
@@ -43,7 +43,7 @@ def main(args):
     for lang_cluster, count in lang_cluster_counts.items():
         print(f'{lang_cluster}: {count}')
 
-    dataset.to_json(args.results_dir + args.path, lines=True)
+    dataset.to_json(args.results_dir + args.code_filename, lines=True)
 
 
 if __name__ == '__main__':
