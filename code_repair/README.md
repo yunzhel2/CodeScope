@@ -137,10 +137,10 @@ The code ready for testing should be stored line by line in your\_codes.jsonl an
 
 ```
 {
-    "lang_cluster": "{model_name}",
-    "lang": "{model_name}",
-    "source_code": "{model_name}",
-    "src_uid": "{model_name}",
+    "lang_cluster": "program_language",
+    "lang": "specific_version",
+    "source_code": "generated code",
+    "src_uid": "src_uid",
     "difficulty": 800,
     "testcases": "[{'input': 'input1', 'output': ['output1']}, {'input': 'input2', 'output': ['output2']}]"
 }
