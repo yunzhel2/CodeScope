@@ -12,14 +12,14 @@ def count_passed_problems(support_lang_clusters, results_path, results_perl_path
         for line in f:
             result_content = json.loads(line)
             pass_flag = 1
-            for outcome in result_content["testcases"]:
+            for outcome in result_content["exec_outcome"]:
                 if outcome["exec_outcome"] != "PASSED":
                     pass_flag = 0
                     break
             if pass_flag:
-                if result_content["src_uid"] not in record_dict[result_content["lang_cluster"]][0]:
-                    record_dict[result_content["lang_cluster"]][0].append(result_content["src_uid"])
-                    record_dict[result_content["lang_cluster"]][1].append(result_content["difficulty"])
+                if result_content["src_uid"] not in record_dict[result_content["lang_cluster"].lower()][0]:
+                    record_dict[result_content["lang_cluster"].lower()][0].append(result_content["src_uid"])
+                    record_dict[result_content["lang_cluster"].lower()][1].append(result_content["difficulty"])
     if os.path.exists(results_perl_path):
         with open(results_perl_path, 'r', encoding='utf-8') as rf:
             content = json.load(rf)
@@ -81,7 +81,7 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--result_dir', type=str, default="execute_results/")
+    parser.add_argument('--result_dir', type=str, default="../execute_results/")
     parser.add_argument('--model_name', type=str, )
 
     args = parser.parse_args()

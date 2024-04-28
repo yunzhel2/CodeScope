@@ -2,11 +2,15 @@ from collections import Counter
 from datasets import load_dataset
 from api_comm import APICommunication, ExtendedUnittest
 import argparse
-
+import os
 
 def add_exec_outcome(example):
+
     language = example['lang']
-    source_code = example['source_code']
+    # please note the `lang` is not `lang_cluster` since the executor needs a specific version of the programming language,
+    # the supported version of `lang` is indicated in inference code.
+
+    source_code = example['source_code'] # the code you use to run
     hidden_unit_tests = eval(example['testcases'])
 
     unittests = []
@@ -32,7 +36,7 @@ def add_exec_outcome(example):
 
 
 def main(args):
-    dataset = load_dataset('json', split='train', data_files=args.codes_dir + args.code_filename)
+    dataset = load_dataset('json', split='train', data_files=os.path.join(args.codes_dir,args.code_filename))
     dataset = dataset.map(add_exec_outcome)
 
     lang_counts = Counter(dataset['lang'])
@@ -43,13 +47,13 @@ def main(args):
     for lang_cluster, count in lang_cluster_counts.items():
         print(f'{lang_cluster}: {count}')
 
-    dataset.to_json(args.results_dir + args.code_filename, lines=True)
+    dataset.to_json(os.path.join(args.results_dir,args.code_filename), lines=True)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--codes_dir', type=str, default='../inference/results', help='The folder where you store your code files')
-    parser.add_argument('--results_dir', type=str, default='execute_results/', help='The folder where you store your run results')
+    parser.add_argument('--results_dir', type=str, default='execute_results', help='The folder where you store your run results')
     parser.add_argument('--code_filename', type=str, default='program_synthesis_eval_gpt4.jsonl', help='code data')
 
     args = parser.parse_args()

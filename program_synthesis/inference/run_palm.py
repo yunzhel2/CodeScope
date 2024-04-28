@@ -10,7 +10,7 @@ from google.api_core import retry
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', default='', type=str)
-    parser.add_argument('--candidate_num', default=1, type=int)
+    parser.add_argument('--candidate_num', default=5, type=int)
     parser.add_argument('--temperature', default=0.7, type=float)
     parser.add_argument('--data_load_name', default='program_synthesis_data.jsonl', type=str)
     parser.add_argument('--result_save_name', default='program_synthesis_eval_palm.jsonl', type=str)
@@ -78,7 +78,7 @@ def add_program_synthesis(example):
 8. support programming language version: {env_map[lang]}
 
 Respond should only with a string in the following JSON format:
-[{{"version": specific version used in the programming language, "target code":  the code you produced in the respective programming language version."}}] """
+[{{"lang": specific version used in the programming language, "target code":  the code you produced in the respective programming language version."}}] """
 
     logging.info('problem src_id: ' + str(prob_uid))
 
