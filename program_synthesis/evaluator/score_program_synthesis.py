@@ -15,6 +15,25 @@ def count_passed_problems(support_lang_clusters, results_path, results_perl_path
             for outcome in result_content["exec_outcome"]:
                 if outcome["exec_outcome"] != "PASSED":
                     pass_flag = 0
+                    break
+            if pass_flag:
+                if result_content["src_uid"] not in record_dict[result_content["lang_cluster"].lower()][0]:
+                    record_dict[result_content["lang_cluster"].lower()][0].append(result_content["src_uid"])
+                    record_dict[result_content["lang_cluster"].lower()][1].append(result_content["difficulty"])
+    if os.path.exists(results_perl_path):
+        with open(results_perl_path, 'r', encoding='utf-8') as rf:
+            content = json.load(rf)
+            for item in content["accepted"]:
+                if content["accepted"][item]["src_uid"] not in record_dict["perl"][0]:
+                    record_dict["perl"][0].append(content["accepted"][item]["src_uid"])
+                    record_dict["perl"][1].append(int(content["accepted"][item]["difficulty"]))
+                else:
+                    continue
+    if os.path.exists(results_d_path):
+        with open(results_d_path, 'r', encoding='utf-8') as rf:
+            content = json.load(rf)
+            for item in content["accepted"]:
+                if content["accepted"][item]["src_uid"] not in record_dict["d"][0]:
                     record_dict["d"][0].append(content["accepted"][item]["src_uid"])
                     record_dict["d"][1].append(int(content["accepted"][item]["difficulty"]))
                 else:
