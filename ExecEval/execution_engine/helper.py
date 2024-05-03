@@ -29,5 +29,7 @@ def has_nested_dataclass(*args, **kwargs):
 
 
 def convert_crlf_to_lf(s: str) -> str:
+    if isinstance(s,list):
+        s = s[0]
     s = s.replace("\r", "").replace("\r\n", "\n")
     return s
