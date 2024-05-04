@@ -34,7 +34,7 @@ You are expected to submit:
 - Related code files, e.g., inference code, post-process, and any code if you create or modify.
 - The generated code for reproducing your reported results
 
-**Due: May 8th.**
+**Due: May 7th.**
 If you want to do more exploration over code understanding & generation task as your final course project, you are highly welcomed to discuss with TA Yunzhe (yunzhel2 AT illinois.edu).
 
 
